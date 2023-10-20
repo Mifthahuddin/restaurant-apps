@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+a{
+  min-height: 44px;
+  min-width: 44px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 0;
+  font-family: "Poppins", sans-serif;
+  z-index: 100;
+}
+
+.navbar {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  height: 50px;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+main .title {
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  padding: 10px 20px;
+  margin-right: 20px;
+  min-width: 44px;
+}
+
+.menu a:focus {
+  background-color: rgb(83, 83, 83);
+  color: white;
+  outline: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  min-width: 44px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+/* .menu a:hover {
+  color: #ffd700;
+} */
+
+.skip-link {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px;
+  background-color: #ffd700;
+  color: white;
+  z-index: 100;
+  outline: none;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: top 0.3s ease, opacity 0.3s ease;
+  font-size: 14px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+}
+
+.skip-link:focus {
+  opacity: 1;
+  top: 10px; 
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  min-width: 44px; 
+}
+
+.bar {
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  margin: 3px 0;
+  transition: transform 0.3s ease;
+}
+
+.hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: black;
+}
+
+.restaurant-card {
+  border: 1px solid #ccc;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-image {
+  height: 200px; 
+  overflow: hidden; 
+}
+
+.restaurant-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.restaurant-info {
+  padding: 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.restaurantRating, .restaurantCity{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.restaurant-info h2{
+    font-size: 18px;
+}
+
+.description {
+  text-align: left;
+  font-size: 12px;
+}
+
+.show-button {
+  background-color: #007bff; 
+  color: #fff; 
+  padding: 8px 16px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 14px; 
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.show-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.modern-footer {
+    margin-top: 25px;
+    background-color: #0056b3;
+    color: white;
+    padding: 40px 0;
+    height: 250px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex-basis: 30%;
+    text-align: left;
+    padding: 20px;
+}
+
+.footer-left h3,
+.footer-center h3,
+.footer-right h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-left p,
+.footer-center address,
+.footer-right .social-icons {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-right h3{
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+
+.social-icons a {
+    text-decoration: none;
+    color: white;
+    font-size: 50px;
+    margin-right: 10px;
+    min-height: 44px;
+    min-width: 44px;
+    transition: color 0.3s ease;
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+}
+
+
+
+.social-icons a:hover {
+    color: #ffd700;
+}
+
+.social-icons a:focus{
+  background-color: #ffd700;
+  color: #0056b3;
+  outline: none;
+
+}
+
+:focus {
+    outline: 2px solid #007bff;
+}
+
+@media (min-width: 1200px) {
+  .hero img {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .restaurant-container{
+    justify-content: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #007bff;
+    z-index: 1;
+  }
+
+  .menu.active li {
+    margin-right: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .bar.rotate-down {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .bar.rotate-up {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .modern-footer {
+        padding: 20px 0;
+        text-align: center;
+        height: auto;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        flex-basis: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer-left h3,
+    .footer-center h3,
+    .footer-right h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-left p,
+    .footer-center address,
+    .footer-right .social-icons {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        margin-bottom: 20px;
+    }
+}
