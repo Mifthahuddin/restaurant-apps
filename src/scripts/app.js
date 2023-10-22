@@ -1,6 +1,8 @@
-export async function fetchAndDisplayRestaurants() {
+import CONFIG from './global/config';
+
+export default async function fetchAndDisplayRestaurants() {
   try {
-    const response = await fetch('./data/DATA.json');
+    const response = await fetch(CONFIG.LIST_URL);
     const data = await response.json();
     const restaurantList = document.getElementById('restaurant-list');
 
@@ -15,7 +17,7 @@ export async function fetchAndDisplayRestaurants() {
       imageContainer.classList.add('restaurant-image');
 
       const restaurantImage = document.createElement('img');
-      restaurantImage.src = restaurant.pictureId;
+      restaurantImage.src = `${CONFIG.BASE_URL}images/large/${restaurant.pictureId}`;
       restaurantImage.alt = restaurant.name;
 
       imageContainer.appendChild(restaurantImage);
