@@ -9,7 +9,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 import { toggleMenu } from './navbar';
 // eslint-disable-next-line import/named
 import { fetchAndDisplayRestaurants } from './views/pages/list';
-import { fetchAndDisplayRestaurantDetail } from './views/pages/detail';
+import { closeDetailPage, loadRestaurantDetail } from './views/pages/detail';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);

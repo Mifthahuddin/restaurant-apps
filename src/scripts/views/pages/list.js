@@ -1,8 +1,13 @@
 import CONFIG from '../../global/config';
+import { openModal, closeModal } from './modal';
+import loadRestaurantDetail from './detail';
 
 export default async function fetchAndDisplayRestaurants() {
   try {
     const response = await fetch(CONFIG.LIST_URL);
+    if (!response.ok) {
+      throw new Error(`Error fetching restaurant list. Status: ${response.status}`);
+    }
     const data = await response.json();
     const restaurantList = document.getElementById('restaurant-list');
 
@@ -12,6 +17,10 @@ export default async function fetchAndDisplayRestaurants() {
       card.setAttribute('role', 'article');
       card.setAttribute('tabindex', '0');
       card.setAttribute('aria-label', `Restaurant: ${restaurant.name}`);
+
+      // Create a "View Details" button for each restaurant
+      const viewDetailsButton = document.createElement('button');
+      viewDetailsButton.textContent = 'View Details';
 
       const imageContainer = document.createElement('div');
       imageContainer.classList.add('restaurant-image');
@@ -47,8 +56,20 @@ export default async function fetchAndDisplayRestaurants() {
       restaurantRating.textContent = `Rating: ${restaurant.rating}`;
       infoContainer.appendChild(restaurantRating);
 
+      viewDetailsButton.addEventListener('click', async () => {
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        if (modalBody) {
+          modalTitle.textContent = restaurant.name; // Set the modal title to the restaurant name
+          modalBody.innerHTML = ''; // Clear any existing content
+          await loadRestaurantDetail(restaurant.id, modalBody);
+          openModal();
+        }
+      });
+
       card.appendChild(imageContainer);
       card.appendChild(infoContainer);
+      card.appendChild(viewDetailsButton);
 
       restaurantList.appendChild(card);
     });
@@ -56,5 +77,16 @@ export default async function fetchAndDisplayRestaurants() {
     console.error('Error fetching and displaying restaurants:', error);
   }
 }
+
+// Add an event listener to close the modal when the close button is clicked
+document.getElementById('close-modal').addEventListener('click', closeModal);
+
+// Close the modal if the user clicks anywhere outside of it
+window.addEventListener('click', (event) => {
+  const modal = document.getElementById('modal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
 
 window.addEventListener('load', fetchAndDisplayRestaurants);
