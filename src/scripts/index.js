@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 /* eslint-disable no-unused-vars */
 import 'regenerator-runtime';
 import '../styles/main.css';
@@ -7,7 +8,8 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import { toggleMenu } from './navbar';
 // eslint-disable-next-line import/named
-import { fetchAndDisplayRestaurants } from './app';
+import { fetchAndDisplayRestaurants } from './views/pages/list';
+import { fetchAndDisplayRestaurantDetail } from './views/pages/detail';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);
