@@ -17,7 +17,7 @@ export default async function fetchAndDisplayRestaurants() {
       imageContainer.classList.add('restaurant-image');
 
       const restaurantImage = document.createElement('img');
-      restaurantImage.src = `${CONFIG.BASE_URL}images/large/${restaurant.pictureId}`;
+      restaurantImage.src = CONFIG.IMAGE.replace('<pictureId>', restaurant.pictureId);
       restaurantImage.alt = restaurant.name;
 
       imageContainer.appendChild(restaurantImage);
