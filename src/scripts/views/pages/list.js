@@ -18,7 +18,6 @@ export default async function fetchAndDisplayRestaurants() {
       card.setAttribute('tabindex', '0');
       card.setAttribute('aria-label', `Restaurant: ${restaurant.name}`);
 
-      // Create a "View Details" button for each restaurant
       const viewDetailsButton = document.createElement('button');
       viewDetailsButton.textContent = 'View Details';
 
@@ -59,9 +58,11 @@ export default async function fetchAndDisplayRestaurants() {
       viewDetailsButton.addEventListener('click', async () => {
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
-        if (modalBody) {
-          modalTitle.textContent = restaurant.name; // Set the modal title to the restaurant name
-          modalBody.innerHTML = ''; // Clear any existing content
+        const modalImage = document.getElementById('modal-image');
+        if (modalTitle && modalBody && modalImage) {
+          modalTitle.textContent = restaurant.name;
+          modalImage.src = CONFIG.IMAGE.replace('<pictureId>', restaurant.pictureId);
+          modalBody.innerHTML = '';
           await loadRestaurantDetail(restaurant.id, modalBody);
           openModal();
         }

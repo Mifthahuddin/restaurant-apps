@@ -166,6 +166,18 @@ main .title {
   flex-direction: column;
 }
 
+.restaurant-card button{
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .restaurant-image {
   height: 200px; 
   overflow: hidden; 
@@ -294,7 +306,6 @@ main .title {
 }
 
 /* Modal Styles */
-/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -305,6 +316,17 @@ main .title {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal li{
+  list-style: none;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 300px; 
+  display: block;
+  margin: 0 auto; 
 }
 
 .modal-dialog {
@@ -477,6 +499,17 @@ main .title {
 
   .bar.rotate-up {
     transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .modal {
+    overflow: auto;
+  }
+  .modal-dialog {
+    width: 90%;
+    max-width: 90%;
+  }
+  .modal-content {
+    max-width: 100%;
   }
 
   .modern-footer {

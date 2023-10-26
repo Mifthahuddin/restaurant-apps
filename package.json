@@ -11,7 +11,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "Mifthahuddin <mifthah.huddin24@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.5",
