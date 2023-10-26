@@ -79,10 +79,8 @@ export default async function fetchAndDisplayRestaurants() {
   }
 }
 
-// Add an event listener to close the modal when the close button is clicked
 document.getElementById('close-modal').addEventListener('click', closeModal);
 
-// Close the modal if the user clicks anywhere outside of it
 window.addEventListener('click', (event) => {
   const modal = document.getElementById('modal');
   if (event.target === modal) {

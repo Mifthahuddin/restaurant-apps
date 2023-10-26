@@ -1,19 +1,16 @@
 /* eslint-disable no-param-reassign */
 export default async function fetchAndDisplayReviews(reviews, reviewsContainer) {
   try {
-    // Clear any existing reviews
     reviewsContainer.innerHTML = '';
 
-    // Create a carousel div
     const carousel = document.createElement('div');
     carousel.classList.add('carousel');
 
-    // Create a carousel item for each review
     reviews.forEach((review, index) => {
       const item = document.createElement('div');
       item.classList.add('carousel-item');
       if (index === 0) {
-        item.classList.add('active'); // Make the first item active
+        item.classList.add('active');
       }
 
       const name = document.createElement('h5');
