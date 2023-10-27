@@ -173,7 +173,11 @@ main .title {
 
 .close-button, .add-review-button{
   width: 100%;
-  
+}
+
+.close-button span, .add-review-button span{
+  margin-left: 5px;
+
 }
 
 .restaurant-card button{

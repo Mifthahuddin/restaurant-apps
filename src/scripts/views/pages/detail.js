@@ -84,11 +84,13 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       const addButton = document.createElement('button');
       addButton.textContent = 'add';
       addButton.classList.add('add-review-button');
+      addButton.innerHTML = '<i class=\'fa-solid fa-heart\'></i><span>Add to Favorite</span>';
 
       /* Close */
       const closeButton = document.createElement('button');
       closeButton.textContent = 'Close';
       closeButton.classList.add('close-button');
+      closeButton.innerHTML = '<i class="fa-solid fa-xmark"></i><span>Close</span>';
       closeButton.addEventListener('click', () => {
         closeDetailPage();
         closeModal();
