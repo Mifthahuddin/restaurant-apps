@@ -171,6 +171,11 @@ main .title {
   -o-border-radius: 5px;
 }
 
+.close-button, .add-review-button{
+  width: 100%;
+  
+}
+
 .restaurant-card button{
   display: block;
   margin-top: 20px;

@@ -80,13 +80,21 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       // Fetch and display reviews for the restaurant
       fetchAndDisplayReviews(data.restaurant.customerReviews, document.getElementById('reviews-list'));
 
+      /* Add */
+      const addButton = document.createElement('button');
+      addButton.textContent = 'add';
+      addButton.classList.add('add-review-button');
+
+      /* Close */
       const closeButton = document.createElement('button');
       closeButton.textContent = 'Close';
+      closeButton.classList.add('close-button');
       closeButton.addEventListener('click', () => {
         closeDetailPage();
         closeModal();
       });
 
+      detailPage.appendChild(addButton);
       detailPage.appendChild(closeButton);
     } else {
       console.error('Restaurant data not found.');
