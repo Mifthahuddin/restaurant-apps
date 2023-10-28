@@ -4,6 +4,7 @@ const CONFIG = {
   IMAGE: 'https://restaurant-api.dicoding.dev/images/large/<pictureId>',
   DETAIL: 'https://restaurant-api.dicoding.dev/detail/:id',
   SEARCH: 'https://restaurant-api.dicoding.dev/search?q=<query>',
+  CACHE_NAME: new Date().toISOString(),
 };
 
 export default CONFIG;
