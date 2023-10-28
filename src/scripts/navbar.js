@@ -2,7 +2,7 @@ const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 const menuItems = document.querySelectorAll('.menu a');
 
-function toggleMenu() {
+export default function toggleMenu() {
   menu.classList.toggle('active');
   hamburger.classList.toggle('active');
 

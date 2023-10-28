@@ -6,10 +6,17 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
-import { toggleMenu } from './navbar';
-// eslint-disable-next-line import/named
-import { fetchAndDisplayRestaurants } from './views/pages/list';
-import { closeDetailPage, loadRestaurantDetail } from './views/pages/detail';
+import toggleMenu from './navbar';
+
+import fetchAndDisplayRestaurants from './views/pages/list';
+import loadRestaurantDetail, { closeDetailPage } from './views/pages/detail';
+import swRegister from './utils/sw-register';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);
+
+window.addEventListener('load', () => {
+  swRegister();
+  fetchAndDisplayRestaurants();
+  toggleMenu();
+});

@@ -3,7 +3,7 @@ import CONFIG from '../../global/config';
 import { closeModal } from './modal';
 import fetchAndDisplayReviews from './review';
 
-function closeDetailPage() {
+export function closeDetailPage() {
   const detailPage = document.querySelector('.restaurant-detail');
   if (detailPage) {
     detailPage.remove();
