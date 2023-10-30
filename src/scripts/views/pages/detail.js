@@ -1,7 +1,9 @@
 // detail.js
 import CONFIG from '../../global/config';
-import { closeModal } from './modal';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 import fetchAndDisplayReviews from './review';
+import { closeModal } from './modal';
+import FavoriteRestaurant from '../../data/favorite-restaurant';
 
 export function closeDetailPage() {
   const detailPage = document.querySelector('.restaurant-detail');
@@ -74,17 +76,23 @@ export default async function loadRestaurantDetail(restaurantId, container) {
         <ul id="reviews-list"></ul>`;
       detailPage.appendChild(customerReviews);
 
-      // Append the detail page to the container
       container.appendChild(detailPage);
 
-      // Fetch and display reviews for the restaurant
       fetchAndDisplayReviews(data.restaurant.customerReviews, document.getElementById('reviews-list'));
 
-      /* Add */
-      const addButton = document.createElement('button');
-      addButton.textContent = 'add';
-      addButton.classList.add('add-review-button');
-      addButton.innerHTML = '<i class=\'fa-solid fa-heart\'></i><span>Add to Favorite</span>';
+      const likeButtonContainer = document.createElement('div');
+      likeButtonContainer.classList.add('like-button-container');
+
+      LikeButtonInitiator.init({
+        likeButtonContainer,
+        restaurant: data.restaurant,
+        favoriteRestaurants: await FavoriteRestaurant.getAllRestaurant(),
+      });
+
+      detailPage.appendChild(likeButtonContainer);
+      likeButtonContainer.addEventListener('likeButtonClicked', async () => {
+        await FavoriteRestaurant.putRestaurant(data.restaurant);
+      });
 
       /* Close */
       const closeButton = document.createElement('button');
@@ -96,7 +104,6 @@ export default async function loadRestaurantDetail(restaurantId, container) {
         closeModal();
       });
 
-      detailPage.appendChild(addButton);
       detailPage.appendChild(closeButton);
     } else {
       console.error('Restaurant data not found.');

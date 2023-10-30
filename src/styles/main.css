@@ -171,11 +171,11 @@ main .title {
   -o-border-radius: 5px;
 }
 
-.close-button, .add-review-button{
+.close-button, #likeButton{
   width: 100%;
 }
 
-.close-button span, .add-review-button span{
+.close-button span, #likeButton span{
   margin-left: 5px;
 
 }
