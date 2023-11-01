@@ -8,6 +8,9 @@
     <link rel="manifest" href="./manifest.json">
   </head>
   <body>
+    <div class="splash-screen" id="splash-screen">
+      <img src="./favicon.png" alt="" width="200px">
+    </div>
     <header>
       <nav>
         <a href="#title" class="skip-link" tabindex="0">Skip to Content</a>
@@ -78,4 +81,10 @@
       </div>
   </footer>
   </body>
+  <script>window.addEventListener('DOMContentLoaded', (event) => {
+    const splashScreen = document.querySelector('.splash-screen');
+    setTimeout(() => {
+        splashScreen.style.display = 'none';
+    }, 2000);
+});</script>
 </html>

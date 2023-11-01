@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "lint": "eslint ./src",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "serve": "http-server dist --port 9000"
   },
   "keywords": [],
   "author": "Mifthahuddin <mifthah.huddin24@gmail.com>",
@@ -24,6 +25,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.28.1",
     "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "idb": "^7.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",

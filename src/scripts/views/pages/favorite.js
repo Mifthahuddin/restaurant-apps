@@ -7,6 +7,8 @@ export default async function fetchAndDisplayRestaurants() {
 
   const restaurants = await FavoriteRestaurant.getAllRestaurant();
   restaurants.forEach((restaurant) => {
+    const title = document.getElementById('title');
+    title.textContent = 'Restaurant Favorite';
     const card = createRestaurantCard(restaurant);
     restaurantListContainer.appendChild(card);
   });
