@@ -1,8 +1,6 @@
-// detail.js
 import CONFIG from '../../global/config';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 import fetchAndDisplayReviews from './review';
-import { closeModal } from './modal';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 
 export function closeDetailPage() {
@@ -26,6 +24,13 @@ export default async function loadRestaurantDetail(restaurantId, container) {
     if (data.restaurant) {
       const detailPage = document.createElement('div');
       detailPage.classList.add('restaurant-detail');
+
+      // Restaurant Image
+      const restaurantImage = document.createElement('img');
+      restaurantImage.src = CONFIG.IMAGE.replace('<pictureId>', data.restaurant.pictureId);
+      restaurantImage.alt = data.restaurant.name;
+      detailPage.appendChild(restaurantImage);
+      restaurantImage.setAttribute('crossorigin', 'anonymous');
 
       // Restaurant Description
       const restaurantDescription = document.createElement('p');
@@ -101,7 +106,6 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       closeButton.innerHTML = '<i class="fa-solid fa-xmark"></i><span>Close</span>';
       closeButton.addEventListener('click', () => {
         closeDetailPage();
-        closeModal();
       });
 
       detailPage.appendChild(closeButton);

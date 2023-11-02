@@ -9,7 +9,7 @@
     "test": "karma start",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "serve": "http-server dist --port 9000"
+    "serve": "http-server dist --port 3000"
   },
   "keywords": [],
   "author": "Mifthahuddin <mifthah.huddin24@gmail.com>",

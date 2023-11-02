@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 export default async function fetchAndDisplayReviews(reviews, reviewsContainer) {
   try {
     reviewsContainer.innerHTML = '';

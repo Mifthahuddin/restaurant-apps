@@ -1,5 +1,4 @@
 import CONFIG from '../global/config';
-import { openModal, closeModal } from '../views/pages/modal';
 import loadRestaurantDetail from '../views/pages/detail';
 
 export default function createRestaurantCard(restaurant) {
@@ -36,6 +35,7 @@ export default function createRestaurantCard(restaurant) {
   const restaurantCity = document.createElement('p');
   restaurantCity.classList.add('restaurantCity');
   restaurantCity.textContent = `City: ${restaurant.city}`;
+  restaurantImage.setAttribute('crossorigin', 'anonymous');
   infoContainer.appendChild(restaurantCity);
 
   const restaurantRating = document.createElement('p');
@@ -46,27 +46,19 @@ export default function createRestaurantCard(restaurant) {
   const viewDetailsButton = document.createElement('button');
   viewDetailsButton.textContent = 'View Details';
   viewDetailsButton.addEventListener('click', async () => {
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    const modalImage = document.getElementById('modal-image');
-    if (modalTitle && modalBody && modalImage) {
-      modalTitle.textContent = restaurant.name;
-      modalImage.src = CONFIG.IMAGE.replace('<pictureId>', restaurant.pictureId);
-      modalBody.innerHTML = '';
-      await loadRestaurantDetail(restaurant.id, modalBody);
-      openModal();
+    const mainContainer = document.querySelector('main');
+    if (mainContainer) {
+      mainContainer.innerHTML = '';
+      const detailContainer = document.createElement('div');
+      detailContainer.id = 'detail-container';
+      mainContainer.appendChild(detailContainer);
+      await loadRestaurantDetail(restaurant.id, detailContainer);
     }
   });
 
   card.appendChild(imageContainer);
   card.appendChild(infoContainer);
   card.appendChild(viewDetailsButton);
-
-  window.addEventListener('click', (event) => {
-    if (event.target === card) {
-      closeModal();
-    }
-  });
 
   return card;
 }
