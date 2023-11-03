@@ -3,13 +3,6 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 import fetchAndDisplayReviews from './review';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 
-export function closeDetailPage() {
-  const detailPage = document.querySelector('.restaurant-detail');
-  if (detailPage) {
-    detailPage.remove();
-  }
-}
-
 export default async function loadRestaurantDetail(restaurantId, container) {
   try {
     const detailUrl = CONFIG.DETAIL.replace(':id', restaurantId);
@@ -99,16 +92,15 @@ export default async function loadRestaurantDetail(restaurantId, container) {
         await FavoriteRestaurant.putRestaurant(data.restaurant);
       });
 
-      /* Close */
-      const closeButton = document.createElement('button');
-      closeButton.textContent = 'Close';
-      closeButton.classList.add('close-button');
-      closeButton.innerHTML = '<i class="fa-solid fa-xmark"></i><span>Close</span>';
-      closeButton.addEventListener('click', () => {
-        closeDetailPage();
+      /* Back */
+      const backButton = document.createElement('button');
+      backButton.textContent = 'Back';
+      backButton.classList.add('back-button');
+      backButton.innerHTML = '<i class="fa-solid fa-arrow-left"></i><span>Back</span>';
+      backButton.addEventListener('click', () => {
+        window.location.href = '/index.html';
       });
-
-      detailPage.appendChild(closeButton);
+      detailPage.appendChild(backButton);
     } else {
       console.error('Restaurant data not found.');
     }
