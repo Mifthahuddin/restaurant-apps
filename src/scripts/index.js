@@ -1,11 +1,43 @@
-import 'regenerator-runtime'; 
+import 'regenerator-runtime';
 import '../styles/main.css';
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/brands';
+import toggleMenu from './navbar';
+import fetchAndDisplayRestaurants from './views/pages/list';
+import swRegister from './utils/sw-register';
+import fetchAndDisplayFavorites from './views/pages/favorite';
 
-import { toggleMenu } from './navbar';
-import { fetchAndDisplayRestaurants } from './app';
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const favoriteButton = document.querySelector('.menu a[href="#favorite"]');
+  const homeButton = document.querySelector('.menu a[href="#title"]');
+
+  if (favoriteButton) {
+    favoriteButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      fetchAndDisplayFavorites();
+    });
+  } else {
+    console.error('Favorite button not found');
+  }
+
+  if (homeButton) {
+    homeButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      fetchAndDisplayRestaurants();
+    });
+  } else {
+    console.error('Home button not found');
+  }
+});
+
+window.addEventListener('load', () => {
+  swRegister();
+  fetchAndDisplayRestaurants();
+  toggleMenu();
+  fetchAndDisplayFavorites();
+});

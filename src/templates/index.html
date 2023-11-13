@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navbar Website</title>
+    <title>Restaurant Website</title>
+    <link rel="icon" href="./favicon.png">
+    <link rel="manifest" href="./manifest.json">
   </head>
   <body>
+    <div class="splash-screen" id="splash-screen">
+      <img src="./favicon.png" alt="" width="200px">
+    </div>
     <header>
       <nav>
         <a href="#title" class="skip-link" tabindex="0">Skip to Content</a>
@@ -16,7 +21,7 @@
           </div>
           <ul class="menu">
             <li><a href="#title" class="active">Home</a></li>
-            <li><a href="#">Favorite</a></li>
+            <li><a href="#favorite">Favorite</a></li>
             <li><a href="https://github.com/Mifthahuddin" target="_blank" rel="noopener noreferrer">About Us</a></li>
         </ul>
         <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="menu">
@@ -33,6 +38,7 @@
       </div>
       <h1 class="title" id="title">Explore Restaurant</h1>
       <div class="restaurant-container" id="restaurant-list"></div>
+      <div id="detail-container"></div>
     </main>
     <footer class="modern-footer">
       <div class="footer-content">
@@ -61,4 +67,10 @@
       </div>
   </footer>
   </body>
+  <script>window.addEventListener('DOMContentLoaded', (event) => {
+    const splashScreen = document.querySelector('.splash-screen');
+    setTimeout(() => {
+        splashScreen.style.display = 'none';
+    }, 2000);
+});</script>
 </html>

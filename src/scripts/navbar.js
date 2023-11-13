@@ -2,7 +2,7 @@ const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 const menuItems = document.querySelectorAll('.menu a');
 
-export function toggleMenu() {
+export default function toggleMenu() {
   menu.classList.toggle('active');
   hamburger.classList.toggle('active');
 
@@ -31,7 +31,8 @@ menuItems.forEach((item, index) => {
 
 menuItems.forEach((item) => {
   item.addEventListener('focusout', () => {
-    item.style.backgroundColor = '';
-    item.style.color = '';
+    const menuItem = item;
+    menuItem.style.backgroundColor = '';
+    menuItem.style.color = '';
   });
 });
