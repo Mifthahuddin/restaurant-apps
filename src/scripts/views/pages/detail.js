@@ -106,5 +106,6 @@ export default async function loadRestaurantDetail(restaurantId, container) {
     }
   } catch (error) {
     console.error('Error loading restaurant detail:', error);
+    container.innerHTML = '<p>Failed to load restaurant details. Please try again later.</p>';
   }
 }
