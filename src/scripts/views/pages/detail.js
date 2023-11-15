@@ -18,6 +18,29 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       const detailPage = document.createElement('div');
       detailPage.classList.add('restaurant-detail');
 
+      const menu = document.querySelector('.menu');
+      if (menu) {
+        menu.style.display = 'none';
+      }
+
+      const hamburger = document.querySelector('.hamburger');
+      if (hamburger) {
+        hamburger.style.display = 'none';
+      }
+
+      // Skip to Content Link
+      const skipLink = document.createElement('a');
+      skipLink.href = '#restaurant-description';
+      skipLink.textContent = 'Skip to Content';
+      skipLink.classList.add('skip-link');
+      detailPage.appendChild(skipLink);
+
+      // Restaurant Name
+      const restaurantName = document.createElement('h2');
+      restaurantName.textContent = data.restaurant.name;
+      restaurantName.classList.add('restaurant-name');
+      detailPage.appendChild(restaurantName);
+
       // Restaurant Image
       const restaurantImage = document.createElement('img');
       restaurantImage.src = CONFIG.IMAGE.replace('<pictureId>', data.restaurant.pictureId);
@@ -29,6 +52,7 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       const restaurantDescription = document.createElement('p');
       restaurantDescription.textContent = data.restaurant.description;
       restaurantDescription.classList.add('restaurant-description');
+      restaurantDescription.id = 'restaurant-description';
       detailPage.appendChild(restaurantDescription);
 
       // Restaurant Address
@@ -50,28 +74,34 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       restaurantRating.classList.add('restaurant-rating');
       detailPage.appendChild(restaurantRating);
 
+      // Food and Drink Menus Container
+      const menusContainer = document.createElement('div');
+      menusContainer.classList.add('menus-container');
+
       // Food Menu
       const foodMenu = document.createElement('div');
       foodMenu.classList.add('restaurant-foodMenu');
       foodMenu.innerHTML = `<h3>Food Menu</h3>
-        <ul>
-          ${data.restaurant.menus.foods.map((food) => `<li>${food.name}</li>`).join('')}
-        </ul>`;
-      detailPage.appendChild(foodMenu);
+    <ul>
+      ${data.restaurant.menus.foods.map((food) => `<li>${food.name}</li>`).join('')}
+    </ul>`;
+      menusContainer.appendChild(foodMenu);
 
       // Drink Menu
       const drinkMenu = document.createElement('div');
       drinkMenu.classList.add('restaurant-drinkMenu');
       drinkMenu.innerHTML = `<h3>Drink Menu</h3>
-        <ul>
-          ${data.restaurant.menus.drinks.map((drink) => `<li>${drink.name}</li>`).join('')}
-        </ul>`;
-      detailPage.appendChild(drinkMenu);
+    <ul>
+      ${data.restaurant.menus.drinks.map((drink) => `<li>${drink.name}</li>`).join('')}
+    </ul>`;
+      menusContainer.appendChild(drinkMenu);
+
+      detailPage.appendChild(menusContainer);
 
       // Customer Reviews
       const customerReviews = document.createElement('div');
       customerReviews.innerHTML = `<h3>Customer Reviews</h3>
-        <ul id="reviews-list"></ul>`;
+          <ul id="reviews-list"></ul>`;
       detailPage.appendChild(customerReviews);
 
       container.appendChild(detailPage);

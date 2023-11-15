@@ -1,7 +1,7 @@
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import createRestaurantCard from '../../utils/createRestaurantCard';
 
-export default async function fetchAndDisplayRestaurants() {
+export default async function fetchAndDisplayFavoriteRestaurants() {
   const restaurantListContainer = document.getElementById('restaurant-list');
   restaurantListContainer.innerHTML = '';
 

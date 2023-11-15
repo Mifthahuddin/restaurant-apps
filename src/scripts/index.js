@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/js/brands';
 import toggleMenu from './navbar';
 import fetchAndDisplayRestaurants from './views/pages/list';
 import swRegister from './utils/sw-register';
-import fetchAndDisplayFavorites from './views/pages/favorite';
+import fetchAndDisplayFavoriteRestaurants from './views/pages/favorite';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (favoriteButton) {
     favoriteButton.addEventListener('click', (event) => {
       event.preventDefault();
-      fetchAndDisplayFavorites();
+      fetchAndDisplayFavoriteRestaurants();
     });
   } else {
     console.error('Favorite button not found');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   swRegister();
-  fetchAndDisplayRestaurants();
   toggleMenu();
-  fetchAndDisplayFavorites();
+  fetchAndDisplayRestaurants();
+  fetchAndDisplayFavoriteRestaurants();
 });

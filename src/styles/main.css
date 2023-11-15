@@ -388,41 +388,57 @@ main .title {
 
 .restaurant-detail {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 20px;
+  margin: 30px;
+  margin-top: 60px;
+  color: #333;
+}
+
+.menus-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .restaurant-detail img {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .restaurant-description {
   text-align: justify;
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 
 .restaurant-address, .restaurant-categories, .restaurant-rating {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .restaurant-foodMenu, .restaurant-drinkMenu {
   text-align: left;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  width: 45%;
 }
 
 .restaurant-foodMenu h3, .restaurant-drinkMenu h3 {
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 22px;
+  margin: 20px 0;
+  color: #333;
 }
 
 .restaurant-foodMenu ul, .restaurant-drinkMenu ul {
@@ -431,7 +447,8 @@ main .title {
 }
 
 .restaurant-foodMenu li, .restaurant-drinkMenu li {
-  margin: 5px 0;
+  margin: 10px 0;
+  color: #666;
 }
 
 
