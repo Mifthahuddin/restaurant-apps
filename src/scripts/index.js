@@ -1,13 +1,11 @@
-import 'regenerator-runtime';
 import '../styles/main.scss';
+import 'regenerator-runtime';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import toggleMenu from './navbar';
-import fetchAndDisplayRestaurants from './views/pages/list';
 import swRegister from './utils/sw-register';
-import fetchAndDisplayFavoriteRestaurants from './views/pages/favorite';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);
@@ -17,18 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeButton = document.querySelector('.menu a[href="#title"]');
 
   if (favoriteButton) {
-    favoriteButton.addEventListener('click', (event) => {
+    favoriteButton.addEventListener('click', async (event) => {
       event.preventDefault();
-      fetchAndDisplayFavoriteRestaurants();
+      const module = await import('./views/pages/favorite');
+      module.default();
     });
   } else {
     console.error('Favorite button not found');
   }
 
   if (homeButton) {
-    homeButton.addEventListener('click', (event) => {
+    homeButton.addEventListener('click', async (event) => {
       event.preventDefault();
-      fetchAndDisplayRestaurants();
+      const module = await import('./views/pages/list');
+      module.default();
     });
   } else {
     console.error('Home button not found');
@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
   swRegister();
   toggleMenu();
-  fetchAndDisplayRestaurants();
-  fetchAndDisplayFavoriteRestaurants();
+  import('./views/pages/list').then((module) => module.default());
+  import('./views/pages/favorite').then((module) => module.default());
 });
