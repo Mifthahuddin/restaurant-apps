@@ -540,12 +540,6 @@ main .title {
   background-color: #0056b3;
 }
 
-/* Media Queries */
-@media (min-width: 1200px) {
-  .hero img {
-    min-width: 1000px;
-  }
-}
 
 @media (max-width: 768px) {
   .menu {
@@ -604,6 +598,18 @@ main .title {
     color: white;
     padding: 40px 0;
     height: auto;
+  }
+
+  .hero {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
 
   .footer-content {

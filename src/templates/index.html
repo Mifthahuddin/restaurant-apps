@@ -34,7 +34,15 @@
     </header>
     <main>
       <div class="hero">
-        <img src="./images/heros/hero-image_1.jpg" alt="Barista">
+        <img
+        src="./images/heros/hero-image_1.jpg"
+        alt="Barista"
+        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        srcset="
+          ./images/heros/hero-image_1-small.jpg 400w,
+          ./images/heros/hero-image_1.jpg 1600w
+        "
+      />
       </div>
       <h1 class="title" id="title">Explore Restaurant</h1>
       <div class="restaurant-container" id="restaurant-list"></div>

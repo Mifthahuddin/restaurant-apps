@@ -1,5 +1,8 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -48,5 +51,14 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
     }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+    }),
+    new BundleAnalyzerPlugin(),
   ],
 });

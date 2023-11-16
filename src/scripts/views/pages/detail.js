@@ -45,8 +45,9 @@ export default async function loadRestaurantDetail(restaurantId, container) {
       const restaurantImage = document.createElement('img');
       restaurantImage.src = CONFIG.IMAGE.replace('<pictureId>', data.restaurant.pictureId);
       restaurantImage.alt = data.restaurant.name;
-      detailPage.appendChild(restaurantImage);
+      restaurantImage.setAttribute('loading', 'lazy');
       restaurantImage.setAttribute('crossorigin', 'anonymous');
+      detailPage.appendChild(restaurantImage);
 
       // Restaurant Description
       const restaurantDescription = document.createElement('p');
