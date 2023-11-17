@@ -64,7 +64,6 @@ export default function createRestaurantCard(restaurant) {
     card.appendChild(infoContainer);
     card.appendChild(viewDetailsButton);
 
-    // Append the card to the restaurant-list container
     restaurantListContainer.appendChild(card);
 
     return card;

@@ -21,6 +21,7 @@
     "@babel/preset-env": "^7.23.3",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@jest/globals": "^29.7.0",
+    "@playwright/test": "^1.40.0",
     "@testing-library/jest-dom": "^6.1.4",
     "babel-jest": "^29.7.0",
     "babel-loader": "^8.2.5",
