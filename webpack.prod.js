@@ -2,7 +2,8 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -59,6 +60,13 @@ module.exports = merge(common, {
         }),
       ],
     }),
-    new BundleAnalyzerPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/public/'),
+          to: path.resolve(__dirname, 'dist/'),
+        },
+      ],
+    }),
   ],
 });
