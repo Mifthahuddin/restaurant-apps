@@ -6,6 +6,8 @@ import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import toggleMenu from './navbar';
 import swRegister from './utils/sw-register';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const hamburger = document.querySelector('.hamburger');
 hamburger.addEventListener('click', toggleMenu);

@@ -15,10 +15,9 @@ export default function createRestaurantCard(restaurant) {
     imageContainer.classList.add('restaurant-image');
 
     const restaurantImage = document.createElement('img');
-    restaurantImage.src = CONFIG.IMAGE.replace('<pictureId>', restaurant.pictureId);
+    restaurantImage.dataset.src = CONFIG.IMAGE.replace('<pictureId>', restaurant.pictureId);
     restaurantImage.alt = restaurant.name;
-    restaurantImage.loading = 'lazy';
-
+    restaurantImage.classList.add('lazyload');
     imageContainer.appendChild(restaurantImage);
 
     const infoContainer = document.createElement('div');

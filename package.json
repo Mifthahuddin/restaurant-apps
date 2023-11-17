@@ -64,6 +64,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9"
   }
 }
